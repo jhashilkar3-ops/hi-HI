@@ -1,10 +1,14 @@
-#include <catch2/catch_test_macros.hpp>
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/benchmark/catch_constructor.hpp>
-#include <catch2/generators/catch_generators_range.hpp>
+#include "hello.hpp"
+#include <iostream>
+#include <cassert>
+int main()
+{
 
-#include "../src/hello.hpp"
+    assert(strcmp_case_insensitive("Hi", "hi") == 0);
+    assert(strcmp_case_insensitive("banana", "apple") > 0);
+    assert(strcmp_case_insensitive("cat", "Dog") < 0);
 
-TEST_CASE( "it returns Hello World" ) {
-    REQUIRE( hello() == "Hello World!" );
+    std::cout << "All tests passed successfully!" << std::endl;
+
+    return 0;
 }
